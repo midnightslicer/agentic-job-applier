@@ -8,7 +8,7 @@ You do three things:
 
 1. Set up the prerequisites below (one time, about 20 minutes).
 2. Put your resume and a skills file in the `input/` folder.
-3. Open Claude Code in this folder and say hi. Claude interviews you and builds everything else.
+3. Open Claude Code in this folder and type "Let's get started." Claude interviews you and builds everything else.
 
 ---
 
@@ -16,10 +16,10 @@ You do three things:
 
 ### 1. Claude Code
 
-You need a paid Claude plan (Pro or Max) and Claude Code installed.
+You need a paid Claude plan (Pro, Max, Team, or Enterprise) and Claude Code installed. Works on macOS, Linux, and Windows; on Windows, run Claude Code directly in Windows, not inside WSL (Claude in Chrome doesn't work from WSL).
 
-- Install: https://docs.claude.com/en/docs/claude-code/setup
-- Sign in the first time you run `claude`.
+- Install: https://code.claude.com/docs/en/setup
+- Sign in with your claude.ai account (`/login`) the first time you run `claude`. Claude in Chrome does not work if you sign in with an API key.
 
 A full run uses a lot of usage, and on Pro you will hit limits sooner. When you hit a limit, the run pauses and picks up where it left off next time.
 
@@ -38,15 +38,17 @@ Claude never replies to recruiters for you. It reads the inbox, logs replies, an
 
 This lets Claude fill out application forms in your real browser.
 
-1. Use Google Chrome (or another Chromium browser that supports Chrome extensions).
+1. Use Google Chrome or Microsoft Edge. Other Chromium browsers (Brave, Arc, Vivaldi, Opera) also work.
 2. Install the **Claude** extension by Anthropic from the Chrome Web Store: https://chromewebstore.google.com (search "Claude"). Make sure the publisher is Anthropic.
 3. Click the extension icon and sign in with the same claude.ai account you use for Claude Code.
-4. In Claude Code, run `/chrome` and follow the prompts to connect. You can also start Claude Code with `claude --chrome`.
-5. Sign in to LinkedIn, Indeed and any other job sites you want Claude to search in Chrome. The job search agent cannot make accounts. Claude uses your accounts to discover jobs.
+4. Start Claude Code with `claude --chrome` and press Enter on the one-time intro. Then run `/chrome` and choose **Enabled by default** so you don't need the flag every time. The `/chrome` panel should show "Status: Enabled" and "Extension: Installed".
+5. Sign in to LinkedIn, Indeed, and any other job sites you want Claude to search, in Chrome. Claude can't create accounts on job boards for you; it uses yours to find jobs. (It does create accounts on company career sites, like Workday, when an application requires one. See `private/accounts.csv`.)
 
 Leave Chrome open while a run is going. Claude opens its own tabs; you can keep using other tabs, but don't close the ones it's working in.
 
-Docs: https://docs.claude.com/en/docs/claude-code/chrome
+If browser actions stop working during a long run, the extension has probably gone idle. Run `/chrome` and choose **Reconnect extension**.
+
+Docs: https://code.claude.com/docs/en/chrome
 
 ### 4. The unslop skill
 
@@ -87,7 +89,7 @@ Any format: `.pdf`, `.docx`, `.txt`, or `.md`. Name it whatever you like.
 
 ### A skills file (`skills.txt`)
 
-This is the most important file in the kit. Your resume is a summary; this file is where Claude gets everything else it can truthfully say about you. More detail here means better tailored resumes and better answers to "tell us about a time when..." questions. Claude will not make up information about you and will not apply to jobs it thinks you have no qualifications in.
+This is the most important file in the kit. Your resume is a summary; this file is where Claude gets everything else it can truthfully say about you. More detail here means better tailored resumes and better answers to "tell us about a time when..." questions. Claude won't make up information about you, and it skips jobs whose hard requirements (a degree, license, or years of experience) you don't meet, so anything you leave out here can cost you jobs you'd qualify for.
 
 Write everything you can do, have done, and have built: tools, software, equipment, certifications, projects, side work, volunteer work, problems you solved, things you're proud of, numbers you know are true. Messy is fine. Claude organizes it.
 
@@ -105,7 +107,7 @@ You can combine these: paste all of it into the one file.
 
 ```bash
 cd claude_job_apply
-claude
+claude --chrome
 ```
 
 Then type: **Let's get started.**
@@ -146,17 +148,17 @@ The same prompt resumes a stopped run.
 
 ### Running unattended
 
-By default Claude Code asks permission before many actions, which means you'd have to sit there clicking "yes". To let it run on its own you can either:
+By default Claude Code asks permission before many actions, which means you'd have to sit there clicking "yes". To let it run on its own, pick one:
 
-- Use Auto mode in Chrome + Auto Mode in Claude Code. This works most of the time.
-- Approve tools as they come up and choose "don't ask again" for each (safest; takes a while the first time), or
-- Start with `claude --chrome --dangerously-skip-permissions`. This lets Claude run any command without asking. Only do this on a computer or user account with nothing on it you'd hate to lose.
+- **Auto mode (recommended).** Switch Claude Code to Auto mode (press Shift+Tab until the mode line says auto). Claude Code then approves routine actions itself, and browser actions it approves skip the Chrome extension's per-site prompts. This works most of the time; check back occasionally for a prompt it stopped on.
+- **Approve as you go.** Approve tools as they come up and choose "don't ask again" for each. Safest, but it takes a while the first time.
+- **Skip all permissions.** Start with `claude --chrome --dangerously-skip-permissions`. This lets Claude run any command without asking. Only do this on a computer or user account with nothing on it you'd hate to lose.
 
 ## Checking in
 
 | File | What's in it |
 |---|---|
-| `applications/needs_me.md` | Things waiting on you. Interviews and assessments are at the top. Check this daily. |
+| `applications/needs_me.md` | Things waiting on you. Interviews and assessments are at the top. |
 | `applications/applications_log.csv` | Every application and its status. Opens in Excel or Google Sheets. |
 | `tailored/` | One folder per job: the posting, the resume sent, and any written answers. Read these before an interview. |
 | `private/accounts.csv` | Logins Claude created on company career sites. |
