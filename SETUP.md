@@ -66,7 +66,7 @@ Ask in small rounds (3 to 5 questions at a time). Use the AskUserQuestion tool f
 - **Phone number.**
 - **Mailing address** (street, city, state, ZIP). Explain: the street address only goes into form address fields, never on the resume. The resume shows "City, ST".
 - LinkedIn URL, portfolio/GitHub/website (optional).
-- Work authorization: legally authorized to work in the country? Need visa sponsorship now or later? Citizenship if they're comfortable sharing (some government forms ask).
+- Which state they live in (many remote postings only hire in certain states and ask "Which state do you reside in?").
 
 ### Step 5. Job search preferences
 
@@ -80,21 +80,66 @@ Ask in small rounds (3 to 5 questions at a time). Use the AskUserQuestion tool f
 - **Experience level:** what level to target (entry, junior, mid, senior). Agree on a cutoff (for example "skip postings requiring more than 5 years").
 - **Industries or companies to avoid**, including their current employer if their search is confidential.
 - **Travel** tolerance (none / up to 25% / more) and **schedule** limits (time zones, shifts, weekends, nights).
-- Anything that's a dealbreaker or a must-have (benefits, schedule, company size, mission).
+- **On-call, overtime, evenings, weekends, holidays:** acceptable? (Forms ask each one as a separate Yes/No.)
+- **Onsite days:** for hybrid roles, how many days a week in the office is acceptable?
+- **Physical requirements:** can they meet common ones (lifting 25 or 50 lbs, standing for long periods)? Only matters for hands-on roles.
+- **Driving:** valid driver's license? Reliable transportation? Own vehicle they'd use for work travel (some roles also check driving records)?
+- **Remote setup:** quiet home workspace and reliable high-speed internet? (Remote forms often ask.)
+- **Languages** spoken and how well (some forms ask; bilingual roles can pay more).
+- Anything that's a dealbreaker or a must-have (benefits, schedule, company size, mission, startups vs. large companies, stretch roles OK or not).
 - **Parallel applicants:** how many applications at once (1 to 4; default 2). More is faster but uses Claude usage faster.
 
 ### Step 6. Form answers
 
-- Years of experience to claim (agree on ONE honest number, and what it covers). Check it against the resume dates.
-- Highest education (confirm from resume).
+Application forms ask the same questions over and over. Every answer collected here is one less job parked later. Before starting, tell the candidate: "Next I'll ask the standard questions job applications ask, including race, gender, veteran status, disability, and visa/H-1B status. The demographic ones are voluntary on every form and 'I'd rather not say' is always a fine answer. I only record what you tell me, and it only goes into application forms that ask." Ask in small groups, using AskUserQuestion where the choices are fixed.
+
+**Work authorization and immigration** (required on nearly every form; answer wrong and the application is auto-rejected):
+- Legally authorized to work in the US (or their country)?
+- Need employer sponsorship for a work visa now **or in the future**? (Forms ask both; someone on OPT or H-1B usually answers Yes to "in the future".)
+- Current status: US citizen / permanent resident (green card) / H-1B / H-1B needing transfer / F-1 OPT or STEM OPT (with end date) / TN / L-1 / H-4 or other EAD / other. Record the visa type and expiration if not a citizen or resident.
+- Citizenship (US citizen yes/no). Needed for roles that require US citizenship, "US person" status under export control (ITAR/EAR), or clearance eligibility.
+- Security clearance: none / level held, active or inactive / willing and eligible to obtain one?
+
+**Voluntary self-identification (EEO).** For each, ask whether to answer or decline. Default to "decline" if they don't care. Record exact answers:
+- Gender (Male / Female / Non-binary / decline). Some forms also ask whether they identify as transgender.
+- Hispanic or Latino (Yes / No / decline). US forms ask this separately from race.
+- Race (American Indian or Alaska Native / Asian / Black or African American / Native Hawaiian or Other Pacific Islander / White / Two or more races / decline).
+- Veteran status: not a veteran / protected veteran (and which: disabled veteran, recently separated, active duty wartime or campaign badge veteran, Armed Forces Service Medal veteran) / veteran but not protected / decline. Also: military spouse or dependent? Any DD-214 they'd use for veterans' preference?
+- Disability (Yes / No / decline). Explain that the federal disability form (CC-305) asks for a typed name and date as a signature; applicants may fill those in only if the candidate chooses Yes or No here.
+- Sexual orientation, pronouns, first-generation college graduate, age range ("40 or over?"): some forms ask; answer or decline.
+- Tribal or Native preference: are they an enrolled member of a federally recognized tribe, with a CDIB or tribal ID? (Tribal employers and some government jobs give hiring preference and ask for the card.)
+
+**Background and eligibility:**
+- At least 18? (Confirm, since it is asked often and a wrong click has caused trouble.)
+- Willing to do a background check? Drug screen? Credit check (finance roles)? Driving record check?
+- Criminal history and convictions questions ("Have you been convicted...", "unspent convictions or cautions"): tell them these always get parked for them to answer personally. Do not ask about their history.
+- Any non-compete, non-solicit, or other agreement that limits where they can work?
+- Previously worked for, interviewed with, or applied to any companies they might apply to? Any relatives working at a company they'd target?
+- Former government employee (some contractors ask, for conflict-of-interest rules)?
+- Need any accommodation during the hiring process? (Usually "No"; record their answer.)
+
+**Experience and education:**
+- Years of experience to claim: agree on ONE honest number and what it counts (total work, field-specific, professional only). Check it against the resume dates. Forms ask in many shapes ("years of X experience", dropdown ranges like "3 - 5 years"); applicants answer from this number and the dates on the resume.
+- Years with each main tool or skill (forms often ask "How many years of experience do you have with X?"). Record honest numbers for their top 5 to 10 skills.
+- Highest education, field, graduation date, GPA (only if they want it given).
+- Certifications and licenses held, with numbers and expiration dates if forms might ask.
+
+**Compensation and timing:**
+- Desired salary already covered in Step 5. Current or past salary: many US states ban the question; default to leaving it blank or "Prefer not to say". Ask whether they ever want it given.
 - Earliest start date / notice period.
-- Willing to do a background check and drug screen?
-- Security clearance (none / which level, active or not).
-- Voluntary EEO questions (gender, race/ethnicity, veteran status, disability): decline to answer on all, or provide specific answers? Default to "decline". If they give answers, record them exactly.
-- Any non-compete or other agreement that limits where they can work?
-- Have they previously worked for any companies they might apply to?
+- Currently employed? (Some forms ask; also affects the "why are you looking" answer.)
+
+**Consents and contact preferences** (forms make these required checkboxes or Yes/No):
+- SMS / text message consent from recruiters: Yes or No? (Past default: No, email only.)
+- Consent to AI note-taking or transcription in interviews: Yes or No?
+- Keep their application on file for future roles / talent community: Yes or No?
+- Applicants accept standard privacy policy and "information is accurate" attestations. Arbitration agreements always get parked.
+
+**Other common questions:**
+- "How did you hear about us?": applicants use the actual source. Do they have any referral contacts at companies they want? (Record names only if they say the person agreed.)
 - Why are they looking for a new job? (Their words; you'll smooth it into a short answer.)
-- Criminal history questions: tell them these get parked for them to answer personally. Do not ask about their history.
+- How do they use AI tools in their work, if at all? (Asked often on tech and office applications. Record the honest answer.)
+
 - **Approval for autonomous actions.** Explain plainly and get an explicit yes for each:
   - Submit applications without them reviewing each one first.
   - Create accounts on company career sites with their email and generated passwords, stored in `private/accounts.csv` (plaintext on their disk).

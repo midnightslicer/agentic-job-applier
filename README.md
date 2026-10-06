@@ -115,7 +115,15 @@ On the first run Claude will:
 1. **Disconnect this folder from git.** It deletes the `.git` folder so your personal information can never be pushed back to the repo you downloaded this from.
 2. Check the prerequisites (Chrome connection, Gmail connector, unslop, Python and LibreOffice) and help you fix anything missing.
 3. Read your resume and skills file.
-4. **Interview you.** It asks for your location, remote preference, how far you'll drive, pay range, the email and phone to put on applications, the kinds of jobs you want, and whatever your files left unclear. Answer in plain language. It takes about 15 to 30 minutes.
+4. **Interview you.** Answer in plain language. It takes about 20 to 40 minutes. It asks everything job applications ask, so that later it can fill in forms without stopping to ask you:
+   - **Contact and location:** the email and phone to put on applications, your mailing address (forms only, never the resume), your state, remote preference, and how far you'll drive.
+   - **The job you want:** target job titles, experience level, pay range (your minimum and what to ask for), full-time/part-time/contract, travel, schedule (evenings, weekends, on-call), and companies or industries to avoid.
+   - **Work authorization and immigration:** whether you're authorized to work in the US, whether you need visa sponsorship now or in the future, your status (US citizen, green card, H-1B, H-1B transfer, OPT/STEM OPT, TN, etc.), and security clearance.
+   - **Voluntary demographic questions:** race, Hispanic/Latino, gender, veteran status, disability, and a few less common ones (pronouns, age 40+, tribal membership). These are optional on every application. "I'd rather not say" is always a fine answer, and it's the default.
+   - **Background and logistics:** background check, drug screen, driver's license, non-competes, relatives at a company, SMS and AI-transcription consent, start date.
+   - **Your experience:** one honest "years of experience" number, years with your main tools, numbers you're sure of, and 2 to 4 short stories (a problem you solved, a project you're proud of) for the "tell us about a time..." questions.
+
+   Criminal history questions are never asked during setup. Any application that asks one gets set aside for you to answer yourself.
 5. Build your profile, a master resume, your standard form answers, and a job-search plan, then show you the master resume to approve.
 
 It will not apply to anything until you approve the master resume and say go.
