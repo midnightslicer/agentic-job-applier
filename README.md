@@ -21,7 +21,7 @@ You need a paid Claude plan (Pro or Max) and Claude Code installed.
 - Install: https://docs.claude.com/en/docs/claude-code/setup
 - Sign in the first time you run `claude`.
 
-Max is recommended. A full run uses a lot of usage, and on Pro you will hit limits sooner. When you hit a limit, the run pauses and picks up where it left off next time.
+A full run uses a lot of usage, and on Pro you will hit limits sooner. When you hit a limit, the run pauses and picks up where it left off next time.
 
 ### 2. A Gmail account (a new one just for job hunting is best)
 
@@ -42,7 +42,7 @@ This lets Claude fill out application forms in your real browser.
 2. Install the **Claude** extension by Anthropic from the Chrome Web Store: https://chromewebstore.google.com (search "Claude"). Make sure the publisher is Anthropic.
 3. Click the extension icon and sign in with the same claude.ai account you use for Claude Code.
 4. In Claude Code, run `/chrome` and follow the prompts to connect. You can also start Claude Code with `claude --chrome`.
-5. Sign in to LinkedIn and Indeed in Chrome if you have accounts there. Claude uses them to discover jobs.
+5. Sign in to LinkedIn, Indeed and any other job sites you want Claude to search in Chrome. The job search agent cannot make accounts. Claude uses your accounts to discover jobs.
 
 Leave Chrome open while a run is going. Claude opens its own tabs; you can keep using other tabs, but don't close the ones it's working in.
 
@@ -87,7 +87,7 @@ Any format: `.pdf`, `.docx`, `.txt`, or `.md`. Name it whatever you like.
 
 ### A skills file (`skills.txt`)
 
-This is the most important file in the kit. Your resume is a summary; this file is where Claude gets everything else it can truthfully say about you. More detail here means better tailored resumes and better answers to "tell us about a time when..." questions.
+This is the most important file in the kit. Your resume is a summary; this file is where Claude gets everything else it can truthfully say about you. More detail here means better tailored resumes and better answers to "tell us about a time when..." questions. Claude will not make up information about you and will not apply to jobs it thinks you have no qualifications in.
 
 Write everything you can do, have done, and have built: tools, software, equipment, certifications, projects, side work, volunteer work, problems you solved, things you're proud of, numbers you know are true. Messy is fine. Claude organizes it.
 
@@ -148,6 +148,7 @@ The same prompt resumes a stopped run.
 
 By default Claude Code asks permission before many actions, which means you'd have to sit there clicking "yes". To let it run on its own you can either:
 
+- Use Auto mode in Chrome + Auto Mode in Claude Code. This works most of the time.
 - Approve tools as they come up and choose "don't ask again" for each (safest; takes a while the first time), or
 - Start with `claude --chrome --dangerously-skip-permissions`. This lets Claude run any command without asking. Only do this on a computer or user account with nothing on it you'd hate to lose.
 
