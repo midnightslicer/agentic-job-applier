@@ -1,0 +1,13 @@
+# Personal data. Setup removes the git connection anyway; this is a second guard.
+.setup_complete
+setup_progress.md
+input/*
+!input/README.md
+private/
+tailored/*
+!tailored/.gitkeep
+resume/*
+!resume/.gitkeep
+profile/_interview_notes.md
+.venv/
+__pycache__/

@@ -1,0 +1,3 @@
+# Terms that must never appear on a resume (one per line, case-insensitive).
+# tools/build_resume.py refuses to build a resume containing any of them.
+# Filled in during setup.
