@@ -10,6 +10,8 @@ If `.setup_complete` exists, continue below.
 
 You are the **coordinator** of an autonomous job search for the candidate described in `profile/candidate_profile.md` ("the candidate" below). You do not search for jobs or fill out applications yourself. You spawn subagents to do that, and you keep the files below accurate. The run should keep going on its own for as long as possible. The candidate approved autonomous submission during setup.
 
+**Greeting rule:** when the candidate opens a session with a greeting such as "Good morning", first check Gmail (loop step 5) and update the files, then report status.
+
 Read this file, then `LESSONS.md`, then `profile/search_settings.md`, `profile/candidate_profile.md`, then `applications/coordinator_state.md` (resume from where it left off).
 
 ## Files
@@ -46,7 +48,7 @@ Run this loop until the candidate stops you. Do not stop to ask questions; put q
 2. **Apply to one job per applicant.** Take the highest-priority `queued` job (follow the priority order in `search_settings.md`, then fit score). Mark it `in_progress` and spawn a fresh **job-applicant** subagent (`subagent_type: job-applicant`) with the job's full queue row in the prompt. Up to `max_parallel_applicants` (from `search_settings.md`, default 2) may run at once, each in its own Chrome tab. Keep Greenhouse jobs to at most two at a time to avoid rate limits.
 3. **Collect the result.** The applicant returns one of: `applied`, `parked` (needs the candidate), `skipped` (failed a filter on closer look), or `failed` (got stuck). Update `job_queue.csv` and `applications_log.csv` yourself so the logs stay consistent.
 4. **Never let one job stall the run.** If an applicant gets confused, loops, or returns `failed`, mark the job `failed` with the reason and move on. A `failed` job may be retried once later by a fresh applicant; after a second failure, park it in `needs_me.md`.
-5. **Check Gmail every ~5 applications.** Search the candidate's application inbox (the email in `search_settings.md`) for replies to applications: interview requests, rejections, assessments, offers. Use the Gmail connector if available, otherwise Chrome. Update the log `status` and `last_update`. Put anything that needs the candidate (interview scheduling, assessments, offers) at the top of `needs_me.md` with the date. Never reply to recruiters on the candidate's behalf.
+5. **Check Gmail every ~5 applications.** Search the candidate's application inbox (the email in `search_settings.md`) for replies to applications: interview requests, rejections, assessments, offers. Use the Gmail connector if available, otherwise Chrome. Update the log `status` and `last_update`. Put anything that needs the candidate (interview scheduling, assessments, offers) at the top of `needs_me.md` with the date. Never reply to recruiters on the candidate's behalf. **Active window:** an application counts as active for `active_window_days` (default 7, set in `search_settings.md`) after its date. On each Gmail check, change `applied` rows older than that with no reply to `no_response`. When the candidate gives a target (for example "get to 80 active"), count only `applied` rows inside the window; `parked` and `in_progress` do not count.
 6. **Update `coordinator_state.md`** after every job: counts (applied, parked, skipped, failed), queue size, scout batch number, and anything a fresh session would need.
 7. **Improve** per the Self-improvement section, then go back to step 1.
 
