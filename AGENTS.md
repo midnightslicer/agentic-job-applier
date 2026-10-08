@@ -5,6 +5,8 @@ Operating instructions for the coordinating agent (any harness: Claude Code, Cod
 ## Harness note
 
 - Subagent definitions live in `agents/` and are shared by every harness. Claude Code reads pointer stubs in `.claude/agents/` that load the same files. Do not edit the stubs.
+- Model choice is harness-coupled metadata and lives where the harness understands it, so the shared agent files name no model. Claude Code pins subagents to Sonnet through its pointer stubs (`model: sonnet` never blocks a launch there: an unavailable alias is substituted or falls back to the main model). Every other harness runs subagents on its default model, or on the `subagent_model` recorded in `profile/search_settings.md` during setup (default: same as the main model). If your harness requires a model per agent, map it with that harness's spec (for example a provider-qualified `provider/model-id`).
+- If your harness rejects a subagent definition outright (unknown model field, no subagent support, model not found), map the model or drop the frontmatter, or run that phase serially per the note above. A subagent that cannot launch counts as failed work for that job after two tries; never stall the loop over it.
 - The browser is a real Chrome started in debugging mode; see "Browser (Chrome debugging mode)" below.
 - Harnesses without a subagent mechanism may run the scout and applicant phases serially in the same session, using the files in `agents/` as the prompt for each phase.
 
