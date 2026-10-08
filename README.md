@@ -138,7 +138,8 @@ Start your agent in this folder, with Chrome running (either Option A above or O
 
 ```bash
 cd claude_job_apply
-claude        # Claude Code. Other harnesses: start them here the usual way.
+claude --chrome   # Claude Code with Claude in Chrome (Option B); plain `claude` if you set up the Chrome debugging MCP (Option A).
+                  # Other harnesses: start them here the usual way.
 ```
 
 Then type: **Let's get started.**
@@ -183,7 +184,7 @@ By default the harness asks permission before many actions, which means you'd ha
 
 - **Auto mode (recommended).** Switch Claude Code to Auto mode (press Shift+Tab until the mode line says auto). Claude Code then approves routine actions itself, and browser actions it approves skip the Chrome extension's per-site prompts. This works most of the time; check back occasionally for a prompt it stopped on.
 - **Approve as you go.** Approve tools as they come up and choose "don't ask again" for each. Safest, but it takes a while the first time.
-- **Skip all permissions.** Start with `claude --dangerously-skip-permissions`. This lets Claude run any command without asking. Only do this on a computer or user account with nothing on it you'd hate to lose.
+- **Skip all permissions.** Start with `claude --chrome --dangerously-skip-permissions` (drop `--chrome` if you use the Chrome debugging MCP instead). This lets Claude run any command without asking. Only do this on a computer or user account with nothing on it you'd hate to lose.
 
 Other harnesses have their own approval settings; allow file and shell actions up front so the run doesn't stall.
 
