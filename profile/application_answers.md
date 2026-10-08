@@ -97,7 +97,7 @@ Use exactly these. "Decline" means "I don't wish to answer" / "Decline to self-i
 
 | Question | Answer |
 |---|---|
-| Desired / preferred salary | {{range}}. If the field only accepts a single number: {{N}}. |
+| Desired / preferred salary | {{range}}. If the field only accepts a single number: {{N}}. If the posting lists a range above the candidate's stated range: use the posted range, or its midpoint for a single-number field. |
 | Current or past salary | {{leave blank / "Prefer not to say" unless the candidate said otherwise}} |
 
 ## Consents
