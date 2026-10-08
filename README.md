@@ -1,4 +1,4 @@
-# Claude Job Apply
+# Agentic Job Applier
 
 A folder that turns an AI coding agent into your own job search assistant. It was built on Claude Code and still works best there, but any capable harness can run it (Codex CLI, Gemini CLI, pi, OpenCode, Cursor, and similar). The agent finds openings that fit you, writes a tailored resume for each one, fills out the application in your Chrome browser, and keeps a log of everything. When it hits something only you can do (an assessment, an interview request, a CAPTCHA it can't pass), it writes it down in `applications/needs_me.md` and moves on to the next job.
 
@@ -137,7 +137,7 @@ You can combine these: paste all of it into the one file.
 Start your agent in this folder, with Chrome running (either Option A above or Option B):
 
 ```bash
-cd claude_job_apply
+cd agentic_job_applier
 claude --chrome   # Claude Code with Claude in Chrome (Option B); plain `claude` if you set up the Chrome debugging MCP (Option A).
                   # Other harnesses: start them here the usual way.
 ```
