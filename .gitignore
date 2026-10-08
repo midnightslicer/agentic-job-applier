@@ -11,3 +11,4 @@ resume/*
 profile/_interview_notes.md
 .venv/
 __pycache__/
+.dev_mode

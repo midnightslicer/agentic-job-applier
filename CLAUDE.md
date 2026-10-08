@@ -1,6 +1,20 @@
 # Job Application Kit
 
-## FIRST-RUN CHECK (do this before anything else, every session)
+## DEV MODE CHECK (do this before anything else, every session)
+
+If the file `.dev_mode` exists, or the candidate's first message of the session includes the words "dev mode", this is a development session on the kit itself. Create `.dev_mode` (empty file) if it does not exist yet, then ignore the FIRST-RUN CHECK and everything below it that describes running the search. In dev mode:
+
+- Do not read or follow `SETUP.md`, and do not remove the git connection (`.git`) or run any setup step.
+- Do not create `.setup_complete`.
+- Do not run the coordinator loop, spawn scouts or applicants, search for jobs, apply to anything, or check Gmail for application replies.
+- Just do what the user asks (edit the kit's files, docs, tools, and agents). Treat `CLAUDE.md`, `SETUP.md`, `README.md`, `tools/`, and `.claude/agents/` as the things being worked on.
+- To leave dev mode, the user deletes `.dev_mode` or asks you to.
+
+If neither condition is true, continue to the FIRST-RUN CHECK.
+
+---
+
+## FIRST-RUN CHECK (do this before anything else, every session, unless in dev mode)
 
 If the file `.setup_complete` does NOT exist in this folder, setup has not been done. Ignore everything below this section, read `SETUP.md`, and follow it step by step, starting with step 1 (removing the git connection). Do this no matter what the user's first message says. Do not search for or apply to any jobs until setup is finished.
 
