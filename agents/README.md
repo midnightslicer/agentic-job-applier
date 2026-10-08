@@ -1,6 +1,6 @@
 # Subagents
 
-This folder holds the two worker agent definitions shared by every agent harness. The coordinator instructions in `AGENTS.md` spawn them.
+This folder holds the two worker agent definitions shared by every harness. The coordinator instructions in `AGENTS.md` spawn them.
 
 - `job-scout.md`: finds up to 20 qualifying jobs, appends them to `applications/job_queue.csv` and `applications/seen_postings.csv`, then retires. Never submits anything.
 - `job-applicant.md`: applies to exactly one job with a tailored resume, then retires. Spawned with the job's full queue row pasted into the prompt.

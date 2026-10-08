@@ -1,6 +1,6 @@
 # Browser: Chrome debugging mode
 
-Application forms are filled in a real Chrome that you (the candidate) start in **debugging mode**. The debugging port lets any agent harness, through a Chrome MCP server, drive that exact browser: your tabs, your logins, your autofill. This is the path every harness uses; it is not tied to one agent product.
+Application forms are filled in a real Chrome that you (the candidate) start in **debugging mode**. The debugging port lets any harness, through a Chrome MCP server, drive that exact browser: your tabs, your logins, your autofill. This is the path every harness uses; it is not tied to one agent product.
 
 (If you use Claude Code and prefer the Anthropic browser extension, "Claude in Chrome" still works; see README.md, Prerequisites 3, Option B. The rest of this file is for Chrome debugging mode.)
 
@@ -41,7 +41,7 @@ In the debugging-mode Chrome window, sign in to:
 
 The profile remembers these across launches. You can keep your normal Chrome window open beside it; the agent only uses the debugging-mode one. Agents cannot create job-board accounts for you, but they do create accounts on company career sites (Workday, iCIMS, and the like) when an application requires one; those logins land in `private/accounts.csv`.
 
-## 3. Connect the agent harness (Chrome debugging MCP)
+## 3. Connect your harness (Chrome debugging MCP)
 
 The agent reaches the debugging port through an MCP server. Any harness with an MCP client can do this; add either of these servers with the flags shown, then start your harness in the kit folder.
 

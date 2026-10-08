@@ -1,6 +1,6 @@
 # Claude Job Apply
 
-A folder that turns an AI coding agent into your own job search assistant. It was built on Claude Code and still works best there, but any capable agent harness can run it (Codex CLI, Gemini CLI, pi, OpenCode, Cursor, and similar). The agent finds openings that fit you, writes a tailored resume for each one, fills out the application in your Chrome browser, and keeps a log of everything. When it hits something only you can do (an assessment, an interview request, a CAPTCHA it can't pass), it writes it down in `applications/needs_me.md` and moves on to the next job.
+A folder that turns an AI coding agent into your own job search assistant. It was built on Claude Code and still works best there, but any capable harness can run it (Codex CLI, Gemini CLI, pi, OpenCode, Cursor, and similar). The agent finds openings that fit you, writes a tailored resume for each one, fills out the application in your Chrome browser, and keeps a log of everything. When it hits something only you can do (an assessment, an interview request, a CAPTCHA it can't pass), it writes it down in `applications/needs_me.md` and moves on to the next job.
 
 It only uses facts about you that you give it. It will not invent skills, jobs, or numbers.
 
