@@ -88,6 +88,7 @@ Ask in small rounds (3 to 5 questions at a time). Use your harness's multiple-ch
 - **Languages** spoken and how well (some forms ask; bilingual roles can pay more).
 - Anything that's a dealbreaker or a must-have (benefits, schedule, company size, mission, startups vs. large companies, stretch roles OK or not).
 - **Parallel applicants:** how many applications at once (1 to 4; default 2). More is faster but uses their subscription faster.
+- **Subagent model (any harness except Claude Code):** ask which model subagents should run on. Default and recommended: the same model as the main conversation, ideally one of the four the README recommends as the main model (Claude Sonnet 5.5, DeepSeek V4.1 Flash, GLM-5.3-Flash, GPT-6 Sol). Record it in `profile/search_settings.md` under `subagent_model` ("same as main" if they agree). On Claude Code, skip the question: the kit's pointer stubs pin subagents to Sonnet there.
 
 ### Step 6. Form answers
 

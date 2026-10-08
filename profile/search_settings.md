@@ -40,6 +40,7 @@
 ## Run settings
 
 - max_parallel_applicants: {{1-4, default 2}}
+- subagent_model: {{model ID, or "same as main"}}  (what subagents run on; default: same as the main model)
 - active_window_days: 7 (applied rows older than this with no reply become no_response)
 - One application per company: {{yes (default) | no}}
 - Posting age window: 14 days by default; scouts may widen to 30 (and older for strong fits) when volume is low.

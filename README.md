@@ -32,6 +32,15 @@ A full run uses a lot of usage, and on Pro you will hit limits sooner. When you 
 
 Harnesses without subagents run more slowly and with less parallelism, but the coordinator loop supports that mode. The Gmail connector described below is a Claude/claude.ai feature; on other harnesses, read the inbox through Chrome instead for now.
 
+**Pick your model.** A run is many small, well-scoped steps, so a fast, capable, mid-priced model beats a flagship for speed and cost. Set your harness's main model to one of these, listed alphabetically to show no preference:
+
+- **Claude Sonnet 5.5** (Anthropic, model ID `claude-sonnet-5-5`): the Sonnet tier on a paid Claude plan.
+- **DeepSeek V4.1 Flash** (DeepSeek, model ID `deepseek-flash`).
+- **GLM-5.3-Flash** (Z.ai, model ID `glm-5.3-flash`).
+- **GPT-6 Sol** (OpenAI, model ID `gpt-6-sol`): since superseded by GPT-6.1 Sol, which fills the same slot.
+
+Subagents use the same model by default, so they stay quick and affordable without losing intelligence. In Claude Code, the kit's subagent stubs pin Sonnet; on any other harness, setup asks which model subagents should run on, defaulting to the main one, and records the answer as `subagent_model` in `profile/search_settings.md`.
+
 ### 2. A Gmail account (a new one just for job hunting is best)
 
 Applications need an email address for verification codes, confirmation links, and recruiter replies. Claude reads this inbox for you, so a dedicated address keeps your personal mail out of it.
