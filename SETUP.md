@@ -1,4 +1,4 @@
-# First-Run Setup (instructions for Claude)
+# First-Run Setup (instructions for the agent, any harness)
 
 You are setting up this job application kit for a new person ("the candidate"). Work through these steps in order. Be friendly and plain-spoken; the candidate may not be technical. Keep each message short. Tell them roughly how long the setup takes (15 to 30 minutes) and that they can stop and resume any time: you track progress in `setup_progress.md`.
 
@@ -28,7 +28,7 @@ This folder was downloaded from a shared repo. Once the candidate's personal inf
 
 1. Run `git rev-parse --show-toplevel 2>/dev/null` and `pwd`.
 2. If the top level equals this folder (there is a `.git` directory here): run `git remote -v` and note the remote, then delete this folder's `.git` directory (`rm -rf .git`). Run `git rev-parse --show-toplevel` again to confirm it now fails.
-3. If the top level is a PARENT folder (this kit sits inside some other repo): do NOT delete the parent's `.git`. Tell the candidate their personal data could be committed to that parent repo, and recommend they move this folder somewhere outside it and reopen Claude there. Continue only if they say it's fine.
+3. If the top level is a PARENT folder (this kit sits inside some other repo): do NOT delete the parent's `.git`. Tell the candidate their personal data could be committed to that parent repo, and recommend they move this folder somewhere outside it and reopen their agent there. Continue only if they say it's fine.
 4. If there is no git repo at all: nothing to do.
 5. Tell the candidate in one sentence what you did and why ("I disconnected this folder from git so your personal info can't accidentally be uploaded").
 
@@ -36,9 +36,9 @@ This folder was downloaded from a shared repo. Once the candidate's personal inf
 
 Check each, report a short checklist (✔ / ✘), and help fix anything missing. Point to the README's Prerequisites section for full instructions.
 
-1. **Claude in Chrome.** Load the Chrome tools with ToolSearch and call `tabs_context_mcp`. If it works, Chrome is connected. If not, tell them to install the Claude extension, sign in, and run `/chrome` (or restart with `claude --chrome`).
+1. **Chrome debugging mode.** Check the debugging port first: run `curl -s http://127.0.0.1:9222/json/version`. If it answers with JSON, Chrome debugging mode is up. Otherwise try your harness's Chrome or browser MCP tools to list tabs or open a page; if those work, the connection is fine (Claude Code with Claude in Chrome also counts as connected). If neither works, tell the candidate to launch Chrome with the debugging port using the commands in `docs/browser.md`, and to add a Chrome MCP server to the harness if one is not configured yet (`npx chrome-devtools-mcp@latest --browser-url http://127.0.0.1:9222`, or Playwright MCP with `--cdp-endpoint http://127.0.0.1:9222`).
 2. **Gmail.** Search the deferred tool list for a Gmail connector (ToolSearch "gmail"). If found, note it. If not, they can connect Gmail at claude.ai > Settings > Connectors. As a fallback, Chrome logged in to their Gmail works too. Ask which Gmail address is the job-hunting inbox (you'll confirm it again in the interview).
-3. **unslop skill.** Check whether `unslop` is in your available skills list. If not, give them the install command from the README (`npx skills add theclaymethod/unslop -g -a claude-code`) and note they must restart Claude Code afterward. Setup can continue without it, but tell them applications will read less naturally until it's installed.
+3. **unslop skill.** Check whether `unslop` is in your available skills list. If not, give them the install commands from the README (`npx skills add theclaymethod/unslop -g -a claude-code`, or the manual clone for their harness) and note they must restart the harness afterward. Setup can continue without it, but tell them applications will read less naturally until it's installed.
 4. **Python and resume builder.** Run `python3 --version` (on Windows, `py --version`). Create the venv and install the dependency: `python3 -m venv .venv && .venv/bin/pip install -q python-docx`. On Windows the venv's Python is `.venv\Scripts\python.exe`: use it wherever the kit says `.venv/bin/python`, and add a line to the Tooling section of `LESSONS.md` saying so.
 5. **LibreOffice** (for PDFs). Check `which soffice libreoffice`. If missing, give the install command for their OS (Linux package manager `libreoffice`; macOS `brew install --cask libreoffice`; Windows installer from libreoffice.org). Without it, resumes build as `.docx` only.
 
@@ -57,7 +57,7 @@ Summarize back what you learned in 5 to 8 bullets (roles, years, main skills, ed
 
 ## Steps 4 to 7. Interview
 
-Ask in small rounds (3 to 5 questions at a time). Use the AskUserQuestion tool for multiple-choice questions; ask open questions in plain text. Skip anything the files already answer clearly, but confirm key facts. Record answers as you go (write a scratch `profile/_interview_notes.md` after each round so nothing is lost if the session ends; delete it at Step 11).
+Ask in small rounds (3 to 5 questions at a time). Use your harness's multiple-choice question tool for fixed-choice questions if it has one (Claude Code: AskUserQuestion), otherwise plain text. Skip anything the files already answer clearly, but confirm key facts. Record answers as you go (write a scratch `profile/_interview_notes.md` after each round so nothing is lost if the session ends; delete it at Step 11).
 
 ### Step 4. Basics
 
@@ -87,11 +87,11 @@ Ask in small rounds (3 to 5 questions at a time). Use the AskUserQuestion tool f
 - **Remote setup:** quiet home workspace and reliable high-speed internet? (Remote forms often ask.)
 - **Languages** spoken and how well (some forms ask; bilingual roles can pay more).
 - Anything that's a dealbreaker or a must-have (benefits, schedule, company size, mission, startups vs. large companies, stretch roles OK or not).
-- **Parallel applicants:** how many applications at once (1 to 4; default 2). More is faster but uses Claude usage faster.
+- **Parallel applicants:** how many applications at once (1 to 4; default 2). More is faster but uses their subscription faster.
 
 ### Step 6. Form answers
 
-Application forms ask the same questions over and over. Every answer collected here is one less job parked later. Before starting, tell the candidate: "Next I'll ask the standard questions job applications ask, including race, gender, veteran status, disability, and visa/H-1B status. The demographic ones are voluntary on every form and 'I'd rather not say' is always a fine answer. I only record what you tell me, and it only goes into application forms that ask." Ask in small groups, using AskUserQuestion where the choices are fixed.
+Application forms ask the same questions over and over. Every answer collected here is one less job parked later. Before starting, tell the candidate: "Next I'll ask the standard questions job applications ask, including race, gender, veteran status, disability, and visa/H-1B status. The demographic ones are voluntary on every form and 'I'd rather not say' is always a fine answer. I only record what you tell me, and it only goes into application forms that ask." Ask in small groups, using the harness's question tool where the choices are fixed.
 
 **Work authorization and immigration** (required on nearly every form; answer wrong and the application is auto-rejected):
 - Legally authorized to work in the US (or their country)?
@@ -195,6 +195,6 @@ Fill in `profile/job_sourcing.md`:
 4. Delete `profile/_interview_notes.md` after confirming everything in it made it into the profile files.
 5. Give the candidate a short summary: target roles, location rules, pay floor, how many at once, what gets parked for them.
 6. Ask for final approval to begin. When they say yes, create `.setup_complete` containing today's date, delete `setup_progress.md`, and tell them:
-   - To start (now or later): run `claude --chrome` in this folder and paste the prompt from the README "Running it" section. If they want to start right now, begin the coordinator loop in `CLAUDE.md` immediately.
+   - To start (now or later): have them start their harness in this folder, per the README "Running it" section, and paste the prompt from that section. If they want to start right now, begin the coordinator loop in `AGENTS.md` immediately.
    - Check `applications/needs_me.md` daily.
    - They can change any setting by telling Claude in plain language.

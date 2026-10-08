@@ -1,6 +1,6 @@
 # Search Settings
 
-<!-- Filled in during setup (SETUP.md). The screening filters in CLAUDE.md read these values. Change only with the candidate's approval. -->
+<!-- Filled in during setup (SETUP.md). The screening filters in AGENTS.md read these values. Change only with the candidate's approval. -->
 
 ## Contact used on applications
 

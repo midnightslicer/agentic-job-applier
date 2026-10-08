@@ -5,4 +5,4 @@
 
 Best way to make `skills.txt`: start a voice recorder and ramble for 20 to 30 minutes about your work, job by job (what you did, what broke and how you fixed it, what you built, tools you used, what you're proud of). Transcribe it and save the text here. You can also ask an AI that knows you to write it up, or write it by hand. See the main README for details.
 
-Then open Claude Code in the folder above this one and say "Let's get started."
+Then start your AI coding agent (Claude Code or another harness) in the folder above this one and say "Let's get started."
